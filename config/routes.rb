@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'lists#index'
 
-  resources :lists, only: %i[inde new create destroy show] do
+  resources :lists, only: %i[index new create destroy show] do
     resources :bookmarks, only: %i[new create]
   end
 

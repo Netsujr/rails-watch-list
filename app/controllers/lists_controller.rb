@@ -16,7 +16,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_strong_params)
     if @list.save
-      redirect_to root
+      redirect_to '/'
     else
       @lists = List.all
       render :index

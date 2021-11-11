@@ -14,7 +14,7 @@
     <% @lists.each do |list| %>
       <div class="card-title">
         <div class="card-title-content"><%= link_to "#{list.name}", "lists/#{list.id}" %></div>
-        <div class="card-delete"><%= link_to '', list_path(list), method: :delete, data: { confirm: 'Are you sure brah?'}, class: "fas fa-cross-alt"%></div>
+        <div class="card-delete btn"><%= link_to '', list_path(list), method: :delete, data: { confirm: 'Are you sure brah?'}, class: "fas fa-skull-crossbones"%></div>
       </div>
     <% end %>
   </div>
