@@ -1,0 +1,27 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1544437152-984ea4e6352a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+<div class="container position-right mt-3">
+  <%= link_to 'Add your movie', "/lists/#{@list.id}/bookmarks/new", class: 'btn btn-red' %>
+  <%= link_to "Return Home", "/", class: "btn btn-red" %>
+</div>
+
+<div class="container my-3">
+  <div class="cards">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card-movie">
+        <img src="<%= bookmark.movie.poster_url %>" alt="">
+        <div class="card-movie-infos">
+          <div class='container'>
+            <h2><%= bookmark.movie.title %></h2>
+            <p><%= bookmark.movie.overview %></p>
+          </div>
+          <div class="card-delete btn-lg"><%= link_to '', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?'}, class: "fas fa-skull-crossbones" %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

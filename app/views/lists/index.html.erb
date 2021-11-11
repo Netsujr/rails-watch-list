@@ -1,6 +1,35 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1544437152-984ea4e6352a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);">
-<div class="container">
-<h1>Its Movie Night</h1>
-<p>Choose from the lists or create your own</p>
+  <div class="container">
+    <h1>Its Movie Night</h1>
+    <p>Choose from the lists or create your own</p>
+    <div><button type="button" class="btn btn-red" <% link_to '', "#scroll" %> >Create List</button></div>
+    <%# <% link_to 'Create List', "#scroll", class: "btn btn-red" Dougs fake syntax %>
+  </div>
 </div>
+
+<br>
+<%# these are the cards %>
+<div class='container'>
+  <div class='custom-cards'>
+    <% @lists.each do |list| %>
+      <div class="card-title">
+        <div class="card-title-content"><%= link_to "#{list.name}", "lists/#{list.id}" %></div>
+        <div class="card-delete"><%= link_to '', list_path(list), method: :delete, data: { confirm: 'Are you sure brah?'}, class: "fas fa-cross-alt"%></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<br>
+<%# This is the form to create new shit %>
+<div class="container my-5" id="scroll">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h1>Create a list</h1>
+      <%= simple_form_for [@list] do |f| %>
+        <%= f.input :name %>
+        <%= f.submit 'Create', class: 'btn-lg btn-red' %>
+      <% end %>
+    </div>
+  </div>
 </div>

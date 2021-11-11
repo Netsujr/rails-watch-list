@@ -2,6 +2,7 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
+    @list = List.new
   end
 
   def new
@@ -13,11 +14,12 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(strong_list_params)
+    @list = List.new(list_strong_params)
     if @list.save
-      redirect_to list_path(@list)
+      redirect_to root
     else
-      render :new
+      @lists = List.all
+      render :index
     end
   end
 
