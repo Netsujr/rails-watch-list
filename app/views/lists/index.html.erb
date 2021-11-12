@@ -23,18 +23,15 @@
   </div>
 </div>
 
-
-<%# f.input: photo, as: :file %>
-
 <br>
 <%# This is the form to create new shit %>
-<div class="container my-5" id="scroll">
+<div class="container my-5 border border-dark p-4" id="scroll">
   <div class="row justify-content-center">
     <div class="col-6">
       <h1>Create a list</h1>
       <%= simple_form_for [@list] do |f| %>
         <%= f.input :name %>
-        <%= f.input :photo, as: :file, class: 'btn-lg btn-red'%>
+        <%= f.input :photo, as: :file %>
         <%= f.submit 'Create', class: 'btn-lg btn-red' %>
       <% end %>
     </div>
