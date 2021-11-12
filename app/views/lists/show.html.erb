@@ -4,13 +4,17 @@
   </div>
 </div>
 
+
+<%# these are the button container %>
 <div class="container position-right mt-3">
   <%= link_to 'Add your movie', "/lists/#{@list.id}/bookmarks/new", class: 'btn btn-red' %>
   <%= link_to "Return Home", "/", class: "btn btn-red" %>
 </div>
 
+
+<%# these are the cards %>
 <div class="container my-3">
-  <div class="cards">
+  <div class="custom-cards">
     <% @list.bookmarks.each do |bookmark| %>
       <div class="card-movie">
         <img src="<%= bookmark.movie.poster_url %>" alt="">
