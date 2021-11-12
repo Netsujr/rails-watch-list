@@ -2,8 +2,8 @@
   <div class="container">
     <h1>Its Movie Night</h1>
     <p>Choose from the lists or create your own</p>
-    <div><button type="button" class="btn btn-red" <% link_to '', "#scroll" %> >Create List</button></div>
-    <div> <%# <% link_to 'Create List', "#scroll", class: "btn btn-red" Dougs fake syntax %> </div>
+    <div> <%= link_to 'Create List', "#scroll", class: "btn btn-red"%>
+    </div>
   </div>
 </div>
 
@@ -12,13 +12,19 @@
 <div class='container'>
   <div class='custom-cards'>
     <% @lists.each do |list| %>
-      <div class="card-title">
-        <div class="card-title-content"><%= link_to "#{list.name}", "lists/#{list.id}" %></div>
-        <div class="card-delete btn"><%= link_to '', list_path(list), method: :delete, data: { confirm: 'Are you sure brah?'}, class: "fas fa-skull-crossbones"%></div>
+      <div class="card-title" style= url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : "" %>)>
+          <div class="card-title-content"><%= link_to "#{list.name}", list_path(list) %>
+          </div>
+          <div class="card-delete btn">
+          <%= link_to '', list_path(list), method: :delete, data: { confirm: 'Are you sure brah?'}, class: "fas fa-skull-crossbones"%>
+        </div>
       </div>
     <% end %>
   </div>
 </div>
+
+
+<%# f.input: photo, as: :file %>
 
 <br>
 <%# This is the form to create new shit %>
@@ -28,6 +34,7 @@
       <h1>Create a list</h1>
       <%= simple_form_for [@list] do |f| %>
         <%= f.input :name %>
+        <%= f.input :photo, as: :file, class: 'btn-lg btn-red'%>
         <%= f.submit 'Create', class: 'btn-lg btn-red' %>
       <% end %>
     </div>
