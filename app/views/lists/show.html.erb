@@ -17,7 +17,7 @@
   <div class="custom-cards">
     <% @list.bookmarks.each do |bookmark| %>
       <div class="card-movie">
-        <div class='card-title'style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(list.photo.key) ? "https://www.google.com/url?sa=i&url=https%3A%2F%2Fknowyourmeme.com%2Fmemes%2Ftrollface&psig=AOvVaw0TxumBnpEiqJ1rRpjRq_od&ust=1636773083757000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIi5o4TtkfQCFQAAAAAdAAAAABAJ" : list.photo.attached? %>)">
+        <div class='card-title'style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(bookmark.photo.key) ? "https://www.google.com/url?sa=i&url=https%3A%2F%2Fknowyourmeme.com%2Fmemes%2Ftrollface&psig=AOvVaw0TxumBnpEiqJ1rRpjRq_od&ust=1636773083757000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIi5o4TtkfQCFQAAAAAdAAAAABAJ" : bookmark.photo.attached? %>)">
         <div class="card-movie-infos">
           <div class='container ml-3'>
             <h2><%= bookmark.movie.title %></h2>
