@@ -12,12 +12,12 @@
 <div class='container'>
   <div class='custom-cards'>
     <% @lists.each do |list| %>
-      <div class="card-title" style= "background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4) url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : "" %>)">
+      <div class="card-title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : "" %>)">
           <div class="card-title-content"><%= link_to "#{list.name}", list_path(list) %>
           </div>
-          <div class="card-delete btn">
-          <%= link_to '', list_path(list), method: :delete, data: { confirm: 'Are you sure brah?'}, class: "fas fa-skull-crossbones"%>
-        </div>
+            <div class="card-delete btn">
+            <%= link_to '', list_path(list), method: :delete, data: { confirm: 'Are you sure brah?'}, class: "fas fa-skull-crossbones"%>
+            </div>
       </div>
     <% end %>
   </div>

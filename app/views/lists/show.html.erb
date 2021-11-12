@@ -20,10 +20,12 @@
         <img src="<%= bookmark.movie.poster_url %>" alt="">
         <div class="card-movie-infos">
           <div class='container ml-3'>
-            <h2><%= bookmark.movie.title %></h2>
-            <p><%= bookmark.movie.overview %></p>
+          <h2><%= bookmark.movie.title %></h2>
+          <p><%= bookmark.movie.overview %></p>
+            <div class="card-delete btn">
+            <%= link_to '', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure brah?'}, class: "fas fa-skull-crossbones"%>
+            </div>
           </div>
-          <div class="card-delete btn-lg my-3 ml-2"><%= link_to '', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?'}, class: "fas fa-skull-crossbones" %></div>
         </div>
       </div>
     <% end %>
